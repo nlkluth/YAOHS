@@ -11,9 +11,13 @@ public class PlayerMovement : MonoBehaviour
 	{
 		float movement = Input.GetAxis("Horizontal") * moveSpeed;
 		if (movement > 0) {
-			float speed = Mathf.Lerp(movement, maxSpeed, speedSmooth * Time.deltaTime);
-        	transform.Translate(0f, 0f, speed);
-			
+			MoveCharacter(movement);
 		}
+	}
+	
+	void MoveCharacter(float movement)
+	{
+		float speed = Mathf.Lerp(movement, maxSpeed, speedSmooth * Time.deltaTime);
+        transform.Translate(0f, 0f, speed);
 	}
 }
