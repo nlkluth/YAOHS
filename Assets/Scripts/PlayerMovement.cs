@@ -17,7 +17,6 @@ public class PlayerMovement : MonoBehaviour
 	
 	void MoveCharacter(float movement)
 	{
-		float speed = Mathf.Lerp(movement, maxSpeed, speedSmooth * Time.deltaTime);
-        transform.Translate(0f, 0f, speed);
+        transform.Translate(0f, 0f, movement);
 	}
 }
