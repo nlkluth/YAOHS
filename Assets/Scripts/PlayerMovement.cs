@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
 	
 	void FixedUpdate()
 	{
-		if (Input.GetButton("Horizontal") && moveSpeed < maxSpeed)
+		if (Input.GetButton("Horizontal"))
 		{
 			MoveCharacter();
 		}
@@ -17,6 +17,13 @@ public class PlayerMovement : MonoBehaviour
 	void MoveCharacter()
 	{
 		moveSpeed += moveSpeed * Time.deltaTime;
-		transform.Translate (0f, 0f, moveSpeed);
+		if (moveSpeed < maxSpeed)
+		{
+			transform.Translate(0f, 0f, moveSpeed);
+		}
+		else
+		{
+			transform.Translate(0f, 0f, maxSpeed);
+		}
 	}
 }
