@@ -5,18 +5,18 @@ public class PlayerMovement : MonoBehaviour
 {
 	public float moveSpeed = 0.1f;
 	public float maxSpeed = 10f;
-	public float speedSmooth = 0.4f;
 	
 	void FixedUpdate()
 	{
-		float movement = Input.GetAxis("Horizontal") * moveSpeed;
-		if (movement > 0) {
-			MoveCharacter(movement);
+		if (Input.GetButton("Horizontal") && moveSpeed < maxSpeed)
+		{
+			MoveCharacter();
 		}
 	}
 	
-	void MoveCharacter(float movement)
+	void MoveCharacter()
 	{
-        transform.Translate(0f, 0f, movement);
+		moveSpeed += moveSpeed * Time.deltaTime;
+		transform.Translate (0f, 0f, moveSpeed);
 	}
 }
