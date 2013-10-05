@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour 
 {
 	public float moveSpeed = 0.1f;
-	public float maxSpeed = 10f;
+	public float maxSpeed = 0.5f;
 	
 	void FixedUpdate()
 	{	
