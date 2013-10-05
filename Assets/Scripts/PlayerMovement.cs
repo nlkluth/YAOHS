@@ -10,6 +10,9 @@ public class PlayerMovement : MonoBehaviour
 	{	
 		if (Input.GetButton("Horizontal"))
 			MoveCharacter();
+		
+		if (Input.GetButtonUp("Horizontal"))
+			moveSpeed = 0.1f;
 	}
 	
 	void MoveCharacter()
