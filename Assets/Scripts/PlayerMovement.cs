@@ -33,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
 		if (Input.GetButtonUp("Horizontal"))
 			decelerating = true;
 		
+		if (Input.GetButtonDown("Jump"))
+			Jump();
 	}
 	
 	void MoveCharacter()
@@ -58,4 +60,7 @@ public class PlayerMovement : MonoBehaviour
 		if (moveSpeed < minSpeed)
 			decelerating = false;
 	}
+	
+	void Jump()
+	{}
 }
