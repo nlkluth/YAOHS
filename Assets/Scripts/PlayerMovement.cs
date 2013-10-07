@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 	public float minSpeed = 0.2f;
 	public float maxSpeed = 0.5f;
 	public float damper = 0.6f;
+	public float backPedalSpeed = -0.1f;
 	
 	private bool decelerating = false;
 	
@@ -17,6 +18,9 @@ public class PlayerMovement : MonoBehaviour
 			decelerating = false;
 			MoveCharacter();
 		}
+		
+		if (Input.GetAxisRaw("Horizontal") == -1)
+			BackPedal();
 		
 		if (Input.GetButtonUp("Horizontal"))
 			decelerating = true;
@@ -33,6 +37,11 @@ public class PlayerMovement : MonoBehaviour
 			transform.Translate(0f, 0f, moveSpeed);
 		else
 			transform.Translate(0f, 0f, maxSpeed);
+	}
+	
+	void BackPedal()
+	{
+		transform.Translate(0f, 0f, backPedalSpeed);
 	}
 	
 	void SlowCharacterDown()
