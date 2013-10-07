@@ -13,7 +13,15 @@ public class PlayerMovement : MonoBehaviour
 	
 	void FixedUpdate()
 	{	
-		if (Input.GetButton("Horizontal"))
+		CheckInput();
+		
+		if (decelerating)
+			SlowCharacterDown();
+	}
+	
+	void CheckInput()
+	{
+		if (Input.GetAxisRaw("Horizontal") == 1)
 		{
 			decelerating = false;
 			MoveCharacter();
@@ -25,12 +33,10 @@ public class PlayerMovement : MonoBehaviour
 		if (Input.GetButtonUp("Horizontal"))
 			decelerating = true;
 		
-		if (decelerating)
-			SlowCharacterDown();
 	}
 	
 	void MoveCharacter()
-	{
+	{	
 		moveSpeed += moveSpeed * Time.deltaTime;
 		
 		if (moveSpeed < maxSpeed)
