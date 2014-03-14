@@ -20,6 +20,22 @@ public class PlayerHealth : MonoBehaviour
 	public void AdjustCurrentHealth(int adjustment)
 	{
 		currentHealth += adjustment;
+
+		if (currentHealth < 0) 
+		{
+			currentHealth = 0;
+		}
+
+		if (currentHealth > maxHealth)
+		{
+			currentHealth = maxHealth;
+		}
+
+		if (maxHealth < 1)
+		{
+			maxHealth = 1;
+		}
+
 		healthBarLength = (Screen.width/2) * (currentHealth / (float)maxHealth);
 	}
 
