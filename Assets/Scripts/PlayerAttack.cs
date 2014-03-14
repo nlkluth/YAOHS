@@ -22,10 +22,16 @@ public class PlayerAttack : MonoBehaviour
 	{
 		float distance = Vector3.Distance(target.transform.position, transform.position);
 
+		Vector3 forward = (target.transform.position - transform.position).normalized;
+		float direction = Vector3.Dot(forward, transform.forward);
+
 		if (distance < 2.5f)
 		{
-			EnemyHealth enemyHealth = (EnemyHealth)target.GetComponent("EnemyHealth");
-			enemyHealth.AdjustCurrentHealth(-10);
+			if (direction > 0)
+			{
+				EnemyHealth enemyHealth = (EnemyHealth)target.GetComponent("EnemyHealth");
+				enemyHealth.AdjustCurrentHealth(-10);
+			}
 		}
 	}
 }
