@@ -20,7 +20,12 @@ public class PlayerAttack : MonoBehaviour
 
 	private void Attack()
 	{
-		EnemyHealth enemyHealth = (EnemyHealth)target.GetComponent("EnemyHealth");
-		enemyHealth.AdjustCurrentHealth(-10);
+		float distance = Vector3.Distance(target.transform.position, transform.position);
+
+		if (distance < 2.5f)
+		{
+			EnemyHealth enemyHealth = (EnemyHealth)target.GetComponent("EnemyHealth");
+			enemyHealth.AdjustCurrentHealth(-10);
+		}
 	}
 }
