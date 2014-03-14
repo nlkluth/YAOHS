@@ -4,17 +4,34 @@ using System.Collections;
 public class PlayerAttack : MonoBehaviour 
 {
 	public GameObject target;
+	public float attackTimer;
+	public float cooldown;
 
 	void Start() 
 	{
-		
+		attackTimer = 0f;
+		cooldown = 2.0f;
 	}
 	
 	void Update() 
 	{
+		if (attackTimer > 0)
+		{
+			attackTimer -= Time.deltaTime;
+		}
+
+		if (attackTimer < 0)
+		{
+			attackTimer = 0;
+		}
+
 		if (Input.GetKeyUp(KeyCode.F))
 		{
-			Attack();
+			if (attackTimer == 0)
+			{
+				Attack();
+				attackTimer = cooldown;
+			}
 		}
 	}
 
