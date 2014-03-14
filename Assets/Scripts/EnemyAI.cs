@@ -4,7 +4,8 @@ using System.Collections;
 public class EnemyAI : MonoBehaviour 
 {
 	public Transform target;
-	public int moveSpeed;
+	public float moveSpeed;
+	public float rotationSpeed;
 
 	private Transform localTransform;
 
@@ -15,11 +16,13 @@ public class EnemyAI : MonoBehaviour
 
 	void Start () 
 	{
-		GameObject gameObject = GameObject.FindGameObjectWithTag("Player");
+		GameObject player = GameObject.FindGameObjectWithTag("Player");
+		target = player.transform;
 	}
 	
 	void Update () 
 	{
-	
+		localTransform.rotation = Quaternion.Slerp(localTransform.rotation, Quaternion.LookRotation(target.position - localTransform.position), rotationSpeed * Time.deltaTime);
+		localTransform.position += Vector3.forward * moveSpeed * Time.deltaTime;
 	}
 }

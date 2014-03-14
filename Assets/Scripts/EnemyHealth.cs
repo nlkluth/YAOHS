@@ -3,8 +3,8 @@ using System.Collections;
 
 public class EnemyHealth : MonoBehaviour 
 {
-	public int maxHealth = 100;
-	public int currentHealth = 100;
+	public float maxHealth = 100;
+	public float currentHealth = 100;
 	public float healthBarLength;
 
 	void Start()
@@ -36,7 +36,7 @@ public class EnemyHealth : MonoBehaviour
 			maxHealth = 1;
 		}
 
-		healthBarLength = (Screen.width/2) * (currentHealth / (float)maxHealth);
+		healthBarLength = (Screen.width/2) * (currentHealth / maxHealth);
 	}
 
 	private void OnGUI()
