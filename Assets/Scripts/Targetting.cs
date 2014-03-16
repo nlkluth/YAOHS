@@ -72,6 +72,12 @@ public class Targetting : MonoBehaviour
 			}
 
 			selectedTarget = targets[index];
+			SelectTarget();
 		}
+	}
+
+	private void SelectTarget()
+	{
+		selectedTarget.renderer.material.color = Color.red;
 	}
 }
