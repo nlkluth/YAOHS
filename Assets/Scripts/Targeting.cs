@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Collections;
 
-public class Targetting : MonoBehaviour 
+public class Targeting : MonoBehaviour 
 {
 	public List<Transform> targets;
 	public Transform selectedTarget;
