@@ -5,7 +5,6 @@ using System.Collections;
 public class Targetting : MonoBehaviour 
 {
 	public List<Transform> targets;
-
 	public Transform selectedTarget;
 
 	void Start() 
