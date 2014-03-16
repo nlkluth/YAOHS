@@ -7,10 +7,13 @@ public class Targetting : MonoBehaviour
 	public List<Transform> targets;
 	public Transform selectedTarget;
 
+	private Transform localTransform;
+
 	void Start() 
 	{
 		targets = new List<Transform>();
 		selectedTarget = null;
+		localTransform = transform;
 
 		AddAllTargets();
 	}
