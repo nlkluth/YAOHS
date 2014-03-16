@@ -41,6 +41,15 @@ public class Targetting : MonoBehaviour
 		targets.Add(target);
 	}
 
+	private void SortTargetsByDistance()
+	{
+		targets.Sort(delegate(Transform t1, Transform t2)
+		{
+			return (Vector3.Distance(t1.position, localTransform.position)
+			        .CompareTo(Vector3.Distance(t2.position, localTransform.position)));
+		});
+	}
+
 	private void TargetEnemy()
 	{
 		selectedTarget = targets[0];
