@@ -70,10 +70,10 @@ public class Targeting : MonoBehaviour
 			{
 				index = 0;
 			}
-
 			selectedTarget = targets[index];
-			SelectTarget();
 		}
+
+		SelectTarget();
 	}
 
 	private void SelectTarget()
