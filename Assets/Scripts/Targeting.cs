@@ -70,10 +70,17 @@ public class Targeting : MonoBehaviour
 			{
 				index = 0;
 			}
+			DeselectTarget();
 			selectedTarget = targets[index];
 		}
 
 		SelectTarget();
+	}
+
+	private void DeselectTarget()
+	{
+		selectedTarget.renderer.material.color = Color.blue;
+		selectedTarget = null;
 	}
 
 	private void SelectTarget()
