@@ -21,7 +21,7 @@ public class BaseStat
 
 	private int CalculateExpTolevel()
 	{
-		return _expToLevel * _levelModifier;
+		return (int)(_expToLevel * _levelModifier);
 	}
 
 	public void LevelUp()
