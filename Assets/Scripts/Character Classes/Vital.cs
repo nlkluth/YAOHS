@@ -19,7 +19,7 @@
 			}
 			return _currentValue;
 		}
-		set; 
+		set { _currentValue = value; } 
 	}
 }
 
