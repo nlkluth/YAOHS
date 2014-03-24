@@ -11,7 +11,7 @@ public class Attribute : BaseStat
 public enum AttributeName
 {
 	Might,
-	Consitution,
+	Constitution,
 	Nimbleness,
 	Speed,
 	Concentration,
