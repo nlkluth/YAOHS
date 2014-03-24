@@ -45,4 +45,9 @@ public struct ModifyingAttribute
 	public Attribute attribute;
 	public float ratio;
 
+	public ModifyingAttribute(Attribute attribute, float ratio)
+	{
+		attribute = attribute,
+		ratio = ratio
+	}
 }
