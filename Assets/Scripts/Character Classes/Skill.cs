@@ -1,4 +1,4 @@
-﻿public class Skill : BaseStat 
+﻿public class Skill : ModifiedStat 
 {
 	public Skill()
 	{

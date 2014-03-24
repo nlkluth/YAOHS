@@ -96,6 +96,16 @@ public class BaseCharacter : MonoBehaviour
 
 	private void SetupSkillModifiers()
 	{
+		ModifyingAttribute MeleeOffenseModifier1 = new ModifyingAttribute();
+		ModifyingAttribute MeleeOffenseModifier2 = new ModifyingAttribute();
 
+		MeleeOffenseModifier1.attribute = GetPrimaryAttribute((int)AttributeName.Might);
+		MeleeOffenseModifier1.ratio = 0.33f;
+
+		MeleeOffenseModifier2.attribute = GetPrimaryAttribute((int)AttributeName.Nimbleness);
+		MeleeOffenseModifier2.ratio = 0.33f;
+
+		GetSkill((int)SkillName.Melee_Offense).AddModifier(MeleeOffenseModifier1);
+		GetSkill((int)SkillName.Melee_Offense).AddModifier(MeleeOffenseModifier1);
 	}
 }
