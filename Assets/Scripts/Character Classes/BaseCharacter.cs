@@ -57,4 +57,45 @@ public class BaseCharacter : MonoBehaviour
 			_skill[count] = new Skill();
 		}
 	}
+
+	public Attribute GetPrimaryAttribute(int index)
+	{
+		return _primaryAttribute[index];
+	}
+
+	public Skill GetSkill(int index)
+	{
+		return _skill[index];
+	}
+
+	public Vital GetVital(int index)
+	{
+		return _vital[index];
+	}
+
+	private void SetupVitalModifiers()
+	{
+		ModifyingAttribute health = new ModifyingAttribute();
+		health.attribute = GetPrimaryAttribute((int)AttributeName.Constitution);
+		health.ratio = 0.5f;
+
+		GetVital((int)VitalName.Health).AddModifier(health);
+
+		ModifyingAttribute energy = new ModifyingAttribute();
+		energy.attribute = GetPrimaryAttribute((int)AttributeName.Constitution);
+		energy.ratio = 1f;
+		
+		GetVital((int)VitalName.Energy).AddModifier(energy);
+
+		ModifyingAttribute mana = new ModifyingAttribute();
+		health.attribute = GetPrimaryAttribute((int)AttributeName.Willpower);
+		health.ratio = 1f;
+		
+		GetVital((int)VitalName.Mana).AddModifier(mana);
+	}
+
+	private void SetupSkillModifiers()
+	{
+
+	}
 }
