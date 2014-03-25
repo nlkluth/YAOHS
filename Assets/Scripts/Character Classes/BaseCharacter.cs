@@ -75,37 +75,29 @@ public class BaseCharacter : MonoBehaviour
 
 	private void SetupVitalModifiers()
 	{
-		ModifyingAttribute health = new ModifyingAttribute();
-		health.attribute = GetPrimaryAttribute((int)AttributeName.Constitution);
-		health.ratio = 0.5f;
-
-		GetVital((int)VitalName.Health).AddModifier(health);
-
-		ModifyingAttribute energy = new ModifyingAttribute();
-		energy.attribute = GetPrimaryAttribute((int)AttributeName.Constitution);
-		energy.ratio = 1f;
-		
-		GetVital((int)VitalName.Energy).AddModifier(energy);
-
-		ModifyingAttribute mana = new ModifyingAttribute();
-		health.attribute = GetPrimaryAttribute((int)AttributeName.Willpower);
-		health.ratio = 1f;
-		
-		GetVital((int)VitalName.Mana).AddModifier(mana);
+		GetVital((int)VitalName.Health).AddModifier(new ModifyingAttribute(GetPrimaryAttribute((int)AttributeName.Constitution), .5f));
+		GetVital((int)VitalName.Energy).AddModifier(new ModifyingAttribute(GetPrimaryAttribute((int)AttributeName.Constitution), 1f));
+		GetVital((int)VitalName.Mana).AddModifier(new ModifyingAttribute(GetPrimaryAttribute((int)AttributeName.Willpower), 1f));
 	}
 
 	private void SetupSkillModifiers()
 	{
-		ModifyingAttribute MeleeOffenseModifier1 = new ModifyingAttribute();
-		ModifyingAttribute MeleeOffenseModifier2 = new ModifyingAttribute();
+		GetVital((int)SkillName.Melee_Offense).AddModifier(new ModifyingAttribute(GetPrimaryAttribute((int)AttributeName.Might), .33f));
+		GetVital((int)SkillName.Melee_Offense).AddModifier(new ModifyingAttribute(GetPrimaryAttribute((int)AttributeName.Nimbleness), .33f));
 
-		MeleeOffenseModifier1.attribute = GetPrimaryAttribute((int)AttributeName.Might);
-		MeleeOffenseModifier1.ratio = 0.33f;
+		GetVital((int)SkillName.Melee_Defense).AddModifier(new ModifyingAttribute(GetPrimaryAttribute((int)AttributeName.Speed), .33f));
+		GetVital((int)SkillName.Melee_Defense).AddModifier(new ModifyingAttribute(GetPrimaryAttribute((int)AttributeName.Constitution), .33f));
 
-		MeleeOffenseModifier2.attribute = GetPrimaryAttribute((int)AttributeName.Nimbleness);
-		MeleeOffenseModifier2.ratio = 0.33f;
+		GetVital((int)SkillName.Magic_Offense).AddModifier(new ModifyingAttribute(GetPrimaryAttribute((int)AttributeName.Concentration), .33f));
+		GetVital((int)SkillName.Magic_Offense).AddModifier(new ModifyingAttribute(GetPrimaryAttribute((int)AttributeName.Willpower), .33f));
 
-		GetSkill((int)SkillName.Melee_Offense).AddModifier(MeleeOffenseModifier1);
-		GetSkill((int)SkillName.Melee_Offense).AddModifier(MeleeOffenseModifier1);
+		GetVital((int)SkillName.Magic_Defense).AddModifier(new ModifyingAttribute(GetPrimaryAttribute((int)AttributeName.Concentration), .33f));
+		GetVital((int)SkillName.Magic_Defense).AddModifier(new ModifyingAttribute(GetPrimaryAttribute((int)AttributeName.Willpower), .33f));
+
+		GetVital((int)SkillName.Ranged_Offense).AddModifier(new ModifyingAttribute(GetPrimaryAttribute((int)AttributeName.Concentration), .33f));
+		GetVital((int)SkillName.Ranged_Offense).AddModifier(new ModifyingAttribute(GetPrimaryAttribute((int)AttributeName.Speed), .33f));
+
+		GetVital((int)SkillName.Ranged_Defense).AddModifier(new ModifyingAttribute(GetPrimaryAttribute((int)AttributeName.Speed), .33f));
+		GetVital((int)SkillName.Ranged_Defense).AddModifier(new ModifyingAttribute(GetPrimaryAttribute((int)AttributeName.Nimbleness), .33f));
 	}
 }
