@@ -20,6 +20,10 @@ public class BaseCharacter : MonoBehaviour
 		_primaryAttribute = new Attribute[Enum.GetValues(typeof(AttributeName)).Length];
 		_skill = new Skill[Enum.GetValues(typeof(SkillName)).Length];
 		_vital = new Vital[Enum.GetValues(typeof(VitalName)).Length];
+
+		SetupPrimaryAttributes();
+		SetupVitals();
+		SetupSkills();
 	}
 
 	public void AddExperience(uint experience)
