@@ -104,4 +104,17 @@ public class BaseCharacter : MonoBehaviour
 		GetVital((int)SkillName.Ranged_Defense).AddModifier(new ModifyingAttribute(GetPrimaryAttribute((int)AttributeName.Speed), .33f));
 		GetVital((int)SkillName.Ranged_Defense).AddModifier(new ModifyingAttribute(GetPrimaryAttribute((int)AttributeName.Nimbleness), .33f));
 	}
+
+	public void StatUpdate()
+	{
+		for (int count = 0; count < _vital.Length; count++)
+		{
+			_vital[count].Update();
+		}
+
+		for (int count = 0; count < _skill.Length; count++)
+		{
+			_skill[count].Update();
+		}
+	}
 }
