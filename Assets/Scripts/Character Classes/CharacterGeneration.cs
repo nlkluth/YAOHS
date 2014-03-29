@@ -20,6 +20,7 @@ public class CharacterGeneration : MonoBehaviour
 		for (int count = 0; count < Enum.GetValues(typeof(AttributeName)).Length; count++)
 		{
 			GUI.Label(new Rect(10, 40 + (count * 25), 100, 25), ((AttributeName)count).ToString());
+			GUI.Label(new Rect(115, 40 + (count * 25), 30, 25), _toon.GetPrimaryAttribute(count).AdjustedBaseValue.ToString());
 		}
 	}
 }
