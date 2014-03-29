@@ -16,7 +16,7 @@ public class CharacterGeneration : MonoBehaviour
 	{
 		DisplayName();
 		DisplayAttributes();
-		DisplayAttributes();
+		DisplayVitals();
 		DisplaySkills();
 	}
 
@@ -37,7 +37,11 @@ public class CharacterGeneration : MonoBehaviour
 
 	private void DisplayVitals()
 	{
-
+		for (int count = 0; count < Enum.GetValues(typeof(VitalName)).Length; count++)
+		{
+			GUI.Label(new Rect(10, 40 + ((count + 7) * 25), 100, 25), ((VitalName)count).ToString());
+			GUI.Label(new Rect(115, 40 + ((count + 7) * 25), 30, 25), _toon.GetVital(count).AdjustedBaseValue.ToString());
+		}
 	}
 
 	private void DisplaySkills()
