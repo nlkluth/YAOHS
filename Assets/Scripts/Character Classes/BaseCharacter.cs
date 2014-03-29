@@ -4,18 +4,15 @@ using System;
 
 public class BaseCharacter : MonoBehaviour 
 {
-	private string _name;
-	private int _level;
-	private uint _freeExperience;
 	private Attribute[] _primaryAttribute;
 	private Vital[] _vital;
 	private Skill[] _skill;
 
 	public void Awake()
 	{
-		_name = string.Empty;
-		_level = 0;
-		_freeExperience = 0;
+		Name = string.Empty;
+		Level = 0;
+		FreeExp = 0;
 
 		_primaryAttribute = new Attribute[Enum.GetValues(typeof(AttributeName)).Length];
 		_skill = new Skill[Enum.GetValues(typeof(SkillName)).Length];
@@ -26,9 +23,13 @@ public class BaseCharacter : MonoBehaviour
 		SetupSkills();
 	}
 
+	public string Name { get; set; }
+	public int Level { get; set; }
+	public uint FreeExp { get; set; }
+
 	public void AddExperience(uint experience)
 	{
-		_freeExperience += experience;
+		FreeExp += experience;
 
 		CalculateLevel();
 	}
