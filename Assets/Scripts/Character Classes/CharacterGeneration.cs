@@ -37,7 +37,7 @@ public class CharacterGeneration : MonoBehaviour
 	private void DisplayName()
 	{
 		GUI.Label(new Rect(10, 10, 50, 25), "Name: ");
-		_toon.Name = GUI.TextArea(new Rect(65, 10, 100, 25), _toon.Name);
+		_toon.Name = GUI.TextField(new Rect(65, 10, 100, 25), _toon.Name);
 	}
 
 	private void DisplayAttributes()
