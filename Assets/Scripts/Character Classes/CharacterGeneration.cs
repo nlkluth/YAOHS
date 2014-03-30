@@ -47,12 +47,14 @@ public class CharacterGeneration : MonoBehaviour
 			{
 				_toon.GetPrimaryAttribute(count).BaseValue--;
 				pointsLeft++;
+				_toon.StatUpdate();				
 			}
 
 			if (GUI.Button(new Rect(180, 40 + (count * 25), 25, 25), "+") && pointsLeft > 0)
 			{
 				_toon.GetPrimaryAttribute(count).BaseValue++;
 				pointsLeft--;
+				_toon.StatUpdate();
 			}
 		}
 	}
