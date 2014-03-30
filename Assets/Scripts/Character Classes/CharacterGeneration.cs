@@ -56,7 +56,13 @@ public class CharacterGeneration : MonoBehaviour
 
 	private void DisplaySkills()
 	{
-		
+		for (int count = 0; count < Enum.GetValues(typeof(SkillName)).Length; count++)
+		{
+			GUI.Label(new Rect(250, 40 + (count * 25), 100, 25), ((SkillName)count).ToString());
+			GUI.Label(new Rect(355, 40 + (count * 25), 30, 25), _toon.GetSkill(count).AdjustedBaseValue.ToString());
+		}
+	}
+
 	private void DisplayPointsLeft()
 	{
 		GUI.Label(new Rect(250, 10, 100, 25), "Points Left: " + pointsLeft);
