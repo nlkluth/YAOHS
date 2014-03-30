@@ -19,6 +19,8 @@ public class CharacterGeneration : MonoBehaviour
 		{
 			_toon.GetPrimaryAttribute(count).BaseValue = MIN_STARTING_ATTRIBUTE_VALUE;
 		}
+
+		_toon.StatUpdate();
 	}
 
 	void OnGUI()
