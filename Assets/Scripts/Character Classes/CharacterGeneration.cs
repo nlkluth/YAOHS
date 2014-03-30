@@ -5,16 +5,26 @@ using System;
 public class CharacterGeneration : MonoBehaviour 
 {
 	private PlayerCharacter _toon;
+	private const int STARTING_POINTS = 350;
+	private const int MIN_STARTING_ATTRIBUTE_VALUE = 10;
+	private int pointsLeft;
 
 	void Start()
 	{
 		_toon = new PlayerCharacter();
 		_toon.Awake();
+
+		pointsLeft = STARTING_POINTS;
+		for (int count = 0; count < Enum.GetValues(typeof(AttributeName)).Length; count++)
+		{
+			_toon.GetPrimaryAttribute(count).BaseValue = MIN_STARTING_ATTRIBUTE_VALUE;
+		}
 	}
 
 	void OnGUI()
 	{
 		DisplayName();
+		DisplayPointsLeft();
 		DisplayAttributes();
 		DisplayVitals();
 		DisplaySkills();
@@ -47,5 +57,8 @@ public class CharacterGeneration : MonoBehaviour
 	private void DisplaySkills()
 	{
 		
+	private void DisplayPointsLeft()
+	{
+		GUI.Label(new Rect(250, 10, 100, 25), "Points Left: " + pointsLeft);
 	}
 }
