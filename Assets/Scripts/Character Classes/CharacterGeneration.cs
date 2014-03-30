@@ -7,6 +7,7 @@ public class CharacterGeneration : MonoBehaviour
 	private PlayerCharacter _toon;
 	private const int STARTING_POINTS = 350;
 	private const int MIN_STARTING_ATTRIBUTE_VALUE = 10;
+	private const int STARTING_VALUE = 50;
 	private int pointsLeft;
 
 	void Start()
@@ -17,7 +18,8 @@ public class CharacterGeneration : MonoBehaviour
 		pointsLeft = STARTING_POINTS;
 		for (int count = 0; count < Enum.GetValues(typeof(AttributeName)).Length; count++)
 		{
-			_toon.GetPrimaryAttribute(count).BaseValue = MIN_STARTING_ATTRIBUTE_VALUE;
+			_toon.GetPrimaryAttribute(count).BaseValue = STARTING_VALUE;
+			pointsLeft -= (STARTING_VALUE - MIN_STARTING_ATTRIBUTE_VALUE);
 		}
 
 		_toon.StatUpdate();
