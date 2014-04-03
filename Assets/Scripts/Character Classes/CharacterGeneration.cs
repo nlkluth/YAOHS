@@ -18,6 +18,7 @@ public class CharacterGeneration : MonoBehaviour
 
 	void Start()
 	{
+//		Instantiate
 		_toon = new PlayerCharacter();
 		_toon.Awake();
 
