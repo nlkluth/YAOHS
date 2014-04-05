@@ -12,6 +12,8 @@ public class GameSettings : MonoBehaviour
 	
 	public void SaveCharacterData()
 	{
+		GameObject playerCharacter = GameObject.Find("playerCharacter");
+		PlayerCharacter playerCharacterClass = playerCharacter.GetComponent<PlayerCharacter>();
 		PlayerPrefs.SetString("Player Name", "test");
 	}
 
