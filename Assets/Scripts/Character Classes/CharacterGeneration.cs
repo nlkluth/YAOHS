@@ -16,11 +16,15 @@ public class CharacterGeneration : MonoBehaviour
 	private const int BUTTON_WIDTH = 20;
 	private const int BUTTON_HEIGHT = 20;
 
+	public GameObject playerPrefab;
+
 	void Start()
 	{
-//		Instantiate
-		_toon = new PlayerCharacter();
-		_toon.Awake();
+		GameObject playerCharacter = Instantiate(playerPrefab, Vector3.zero, Quaternion.identity) as GameObject;
+
+		_toon = playerCharacter.GetComponent<PlayerCharacter>();
+		_toon.Name = "pc";
+//		_toon.Awake();
 
 		pointsLeft = STARTING_POINTS;
 		for (int count = 0; count < Enum.GetValues(typeof(AttributeName)).Length; count++)
@@ -39,6 +43,7 @@ public class CharacterGeneration : MonoBehaviour
 		DisplayAttributes();
 		DisplayVitals();
 		DisplaySkills();
+		DisplayCreateButton();
 	}
 
 	private void DisplayName()
@@ -91,5 +96,13 @@ public class CharacterGeneration : MonoBehaviour
 	private void DisplayPointsLeft()
 	{
 		GUI.Label(new Rect(250, 10, 100, 25), "Points Left: " + pointsLeft);
+	}
+
+	private void DisplayCreateButton()
+	{
+		if (GUI.Button(new Rect(Screen.width / 2 - 50, 40 + (10 * LINE_HEIGHT), 100, LINE_HEIGHT), "Create"))
+		{
+			Application.LoadLevel(1);
+		}
 	}
 }
