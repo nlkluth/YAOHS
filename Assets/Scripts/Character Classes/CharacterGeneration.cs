@@ -20,10 +20,10 @@ public class CharacterGeneration : MonoBehaviour
 
 	void Start()
 	{
-		GameObject playerCharacter = Instantiate(playerPrefab, Vector3.zero, Quaternion.identity) as GameObject;
+		var playerCharacter = Instantiate(playerPrefab, Vector3.zero, Quaternion.identity) as GameObject;
+		playerCharacter.name = "pc";
 
 		_toon = playerCharacter.GetComponent<PlayerCharacter>();
-		_toon.Name = "pc";
 //		_toon.Awake();
 
 		pointsLeft = STARTING_POINTS;
@@ -102,7 +102,7 @@ public class CharacterGeneration : MonoBehaviour
 	{
 		if (GUI.Button(new Rect(Screen.width / 2 - 50, 40 + (10 * LINE_HEIGHT), 100, LINE_HEIGHT), "Create"))
 		{
-			GameSettings gameSettings = GameObject.Find("__gameSettings").GetComponent<GameSettings>();
+			GameSettings gameSettings = GameObject.Find("__GameSettings").GetComponent<GameSettings>();
 
 			gameSettings.SaveCharacterData();
 			Application.LoadLevel(1);

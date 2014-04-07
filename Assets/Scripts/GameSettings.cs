@@ -4,8 +4,6 @@ using System;
 
 public class GameSettings : MonoBehaviour 
 {
-	public GameObject PlayerPrefab;	
-
 	void Awake()
 	{
 		DontDestroyOnLoad(this);
@@ -13,14 +11,14 @@ public class GameSettings : MonoBehaviour
 	
 	public void SaveCharacterData()
 	{
-		GameObject playerCharacter = GameObject.Find("playerCharacter");
+		GameObject playerCharacter = GameObject.Find("pc");
 		PlayerCharacter playerCharacterClass = playerCharacter.GetComponent<PlayerCharacter>();
 		PlayerPrefs.SetString("Player Name", playerCharacterClass.Name);
 
 		for (int count = 0; count < Enum.GetValues(typeof(AttributeName)).Length; count++)
 		{
-			PlayerPrefs.SetInt(((AttributeName)count).ToString());
-			playerCharacterClass.GetPrimaryAttribute(count).BaseValue.ToString()
+			PlayerPrefs.SetInt(((AttributeName)count).ToString(), playerCharacterClass.GetPrimaryAttribute(count).BaseValue);
+			PlayerPrefs.SetInt(((AttributeName)count).ToString() + "Exp To Level", playerCharacterClass.GetPrimaryAttribute(count).ExpToLevel);
 		}
 
 	}
