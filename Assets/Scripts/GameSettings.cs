@@ -18,7 +18,7 @@ public class GameSettings : MonoBehaviour
 		for (int count = 0; count < Enum.GetValues(typeof(AttributeName)).Length; count++)
 		{
 			PlayerPrefs.SetInt(((AttributeName)count).ToString(), playerCharacterClass.GetPrimaryAttribute(count).BaseValue);
-			PlayerPrefs.SetInt(((AttributeName)count).ToString() + "Exp To Level", playerCharacterClass.GetPrimaryAttribute(count).ExpToLevel);
+			PlayerPrefs.SetInt(((AttributeName)count).ToString() + " - Exp To Level", playerCharacterClass.GetPrimaryAttribute(count).ExpToLevel);
 		}
 
 	}
