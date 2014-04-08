@@ -9,7 +9,7 @@
 		LevelModifier = 1.1f;
 	}
 
-	private int Currentvalue
+	public int Currentvalue
 	{ 
 		get
 		{

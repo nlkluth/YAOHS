@@ -21,6 +21,13 @@ public class GameSettings : MonoBehaviour
 			PlayerPrefs.SetInt(((AttributeName)count).ToString() + " - Exp To Level", playerCharacterClass.GetPrimaryAttribute(count).ExpToLevel);
 		}
 
+		for (int count = 0; count < Enum.GetValues(typeof(VitalName)).Length; count++)
+		{
+			PlayerPrefs.SetInt(((VitalName)count).ToString(), playerCharacterClass.GetVital(count).BaseValue);
+			PlayerPrefs.SetInt(((VitalName)count).ToString() + " - Exp To Level", playerCharacterClass.GetVital(count).ExpToLevel);
+			PlayerPrefs.SetInt(((VitalName)count).ToString() + " - Current Value", playerCharacterClass.GetVital(count).Currentvalue);
+		}
+
 	}
 
 	public void LoadCharacterData()
