@@ -38,6 +38,18 @@ public class ModifiedStat : BaseStat
 	{
 		CalculateModifiedValue();
 	}
+
+	public string GetModifyingAttributeString()
+	{
+		string temp;
+
+		for (int count = 0; count < _modifiers.Count; count++)
+		{
+
+		}
+
+		return "";
+	}
 }
 
 public struct ModifyingAttribute
