@@ -44,6 +44,7 @@ public class BaseCharacter : MonoBehaviour
 		for (int count = 0; count < _primaryAttribute.Length; count++)
 		{
 			_primaryAttribute[count] = new Attribute();
+			_primaryAttribute[count].Name = ((AttributeName)count).ToString();
 		}
 	}
 
