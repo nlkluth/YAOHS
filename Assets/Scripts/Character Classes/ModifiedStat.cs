@@ -41,14 +41,16 @@ public class ModifiedStat : BaseStat
 
 	public string GetModifyingAttributeString()
 	{
-		string temp;
+		string temp = "";
 
 		for (int count = 0; count < _modifiers.Count; count++)
 		{
-
+			temp += _modifiers[count].attribute.Name;
+			temp += "-";
+			temp += _modifiers[count].ratio;
 		}
 
-		return "";
+		return temp;
 	}
 }
 
