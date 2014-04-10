@@ -48,6 +48,11 @@ public class ModifiedStat : BaseStat
 			temp += _modifiers[count].attribute.Name;
 			temp += "-";
 			temp += _modifiers[count].ratio;
+
+			if (count < _modifiers.Count - 1)
+			{
+				temp += "|";
+			}
 		}
 
 		return temp;
