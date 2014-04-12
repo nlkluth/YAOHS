@@ -43,7 +43,15 @@ public class CharacterGeneration : MonoBehaviour
 		DisplayAttributes();
 		DisplayVitals();
 		DisplaySkills();
-		DisplayCreateButton();
+
+		if (_toon.Name == "" || pointsLeft > 0) 
+		{
+				DisplayCreateLabel();
+		} 
+		else 
+		{
+				DisplayCreateButton();
+		}
 	}
 
 	private void DisplayName()
@@ -98,6 +106,11 @@ public class CharacterGeneration : MonoBehaviour
 		GUI.Label(new Rect(250, 10, 100, 25), "Points Left: " + pointsLeft);
 	}
 
+	private void DisplayCreateLabel()
+	{
+		GUI.Label(new Rect (Screen.width / 2 - 50, 40 + (10 * LINE_HEIGHT), 100, LINE_HEIGHT), "Enter Name", "Button"); 
+	}
+
 	private void DisplayCreateButton()
 	{
 		if (GUI.Button(new Rect(Screen.width / 2 - 50, 40 + (10 * LINE_HEIGHT), 100, LINE_HEIGHT), "Create"))
@@ -107,5 +120,13 @@ public class CharacterGeneration : MonoBehaviour
 			gameSettings.SaveCharacterData();
 			Application.LoadLevel(1);
 		}
+	}
+
+	private void UpdateCurrentValues()
+	{
+		for (int count = 0; count < Enum.GetValues(typeof(VitalName)).Length; count++) 
+		{
+			_toon.GetVital(count).Currentvalue = _toon.GetVital(count).AdjustedBaseValue;
+		} 
 	}
 }
