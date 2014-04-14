@@ -4,6 +4,7 @@ using System.Collections;
 public class GameMaster : MonoBehaviour 
 {
 	public GameObject playerCharacter;
+	public Camera mainCamera;
 
 	void Start() 
 	{
