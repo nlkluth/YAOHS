@@ -7,7 +7,7 @@ public class GameMaster : MonoBehaviour
 
 	void Start() 
 	{
-	
+		Instantiate (playerCharacter, Vector3.zero, Quaternion.identity);
 	}
 	
 	void Update()
