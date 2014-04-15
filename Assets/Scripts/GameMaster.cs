@@ -26,8 +26,10 @@ public class GameMaster : MonoBehaviour
 		mainCamera.transform.Rotate(xRotOffset, 0, 0);
 	}
 	
-	void Update()
+	public void LoadCharacter()
 	{
-	
+		GameSettings gameSettings = GameObject.Find("GameSettings").GetComponent<GameSettings>();
+
+	gameSettings.LoadCharacterData();
 	}
 }

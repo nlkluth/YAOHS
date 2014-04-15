@@ -116,7 +116,7 @@ public class CharacterGeneration : MonoBehaviour
 		if (GUI.Button(new Rect(Screen.width / 2 - 50, 40 + (10 * LINE_HEIGHT), 100, LINE_HEIGHT), "Create"))
 		{
 			GameSettings gameSettings = GameObject.Find("GameSettings").GetComponent<GameSettings>();
-
+			UpdateCurrentValues();
 			gameSettings.SaveCharacterData();
 			Application.LoadLevel(1);
 		}
