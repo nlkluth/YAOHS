@@ -118,7 +118,7 @@ public class CharacterGeneration : MonoBehaviour
 			GameSettings gameSettings = GameObject.Find("GameSettings").GetComponent<GameSettings>();
 			UpdateCurrentValues();
 			gameSettings.SaveCharacterData();
-			Application.LoadLevel(1);
+			Application.LoadLevel("Level1");
 		}
 	}
 
