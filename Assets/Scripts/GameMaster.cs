@@ -4,6 +4,7 @@ using System.Collections;
 public class GameMaster : MonoBehaviour 
 {
 	public GameObject playerCharacter;
+	public GameObject gameSettings;	
 	public Camera mainCamera;
 	public float zOffset;
 	public float yOffset;
