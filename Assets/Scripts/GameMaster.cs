@@ -29,8 +29,16 @@ public class GameMaster : MonoBehaviour
 	
 	public void LoadCharacter()
 	{
-		GameSettings gameSettings = GameObject.Find("GameSettings").GetComponent<GameSettings>();
+		GameObject gameSettings = GameObject.Find("");
 
-	gameSettings.LoadCharacterData();
+		if (gameSettings == null) 
+		{
+			Instantiate(gameSettings, Vector3.zero, Quaternion.identity);
+			gameSettings.name = "gameSettings";
+		}
+
+		GameSettings gameSettingsScript = GameObject.Find("GameSettings").GetComponent<GameSettings>();
+
+		gameSettingsScript.LoadCharacterData();
 	}
 }
