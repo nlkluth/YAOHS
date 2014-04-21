@@ -56,7 +56,11 @@ public class GameSettings : MonoBehaviour
 
 		for (int count = 0; count < Enum.GetValues(typeof(AttributeName)).Length; count++) 
 		{
-
+			playerCharacterClass.GetVital(count).BaseValue = PlayerPrefs.GetInt(((VitalName)count).ToString(), 0);
+			playerCharacterClass.GetVital(count).ExpToLevel = PlayerPrefs.GetInt(((VitalName)count).ToString() + " - Exp To Level", 0);
+			playerCharacterClass.GetVital(count).Currentvalue = PlayerPrefs.GetInt(((VitalName)count).ToString() + " - Current Value", 0);
+			
+//			PlayerPrefs.SetString(((VitalName)count).ToString() + "Mods", playerCharacterClass.GetVital(count).GetModifyingAttributeString());
 		}
 	}
 }
