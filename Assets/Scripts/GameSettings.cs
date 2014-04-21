@@ -13,6 +13,7 @@ public class GameSettings : MonoBehaviour
 	{
 		GameObject playerCharacter = GameObject.Find("pc");
 		PlayerCharacter playerCharacterClass = playerCharacter.GetComponent<PlayerCharacter>();
+		PlayerPrefs.DeleteAll();
 		PlayerPrefs.SetString("Player Name", playerCharacterClass.Name);
 
 		for (int count = 0; count < Enum.GetValues(typeof(AttributeName)).Length; count++)
@@ -41,5 +42,21 @@ public class GameSettings : MonoBehaviour
 	}
 
 	public void LoadCharacterData()
-	{}
+	{
+		GameObject playerCharacter = GameObject.Find("pc");
+		PlayerCharacter playerCharacterClass = playerCharacter.GetComponent<PlayerCharacter>();
+
+		playerCharacterClass.name = PlayerPrefs.GetString("Player Name", "Name me");
+
+		for (int count = 0; count < Enum.GetValues(typeof(AttributeName)).Length; count++)
+		{
+			playerCharacterClass.GetPrimaryAttribute(count).BaseValue = PlayerPrefs.GetInt(((AttributeName)count).ToString(), 0);
+			playerCharacterClass.GetPrimaryAttribute(count).ExpToLevel = PlayerPrefs.GetInt(((AttributeName)count).ToString() + " - Exp To Level", 0);
+		}
+
+		for (int count = 0; count < Enum.GetValues(typeof(AttributeName)).Length; count++) 
+		{
+
+		}
+	}
 }

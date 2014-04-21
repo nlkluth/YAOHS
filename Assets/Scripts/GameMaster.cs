@@ -16,6 +16,7 @@ public class GameMaster : MonoBehaviour
 	void Start() 
 	{
 		_player = Instantiate (playerCharacter, Vector3.zero, Quaternion.identity) as GameObject;
+		_player.name = "";
 		_playerCharacterScript = _player.GetComponent<PlayerCharacter>();
 
 		zOffset = -2.5f;
@@ -25,6 +26,8 @@ public class GameMaster : MonoBehaviour
 		mainCamera.transform.position = new Vector3(_player.transform.position.x, _player.transform.position.y + yOffset,
 		                                            _player.transform.position.z + zOffset);
 		mainCamera.transform.Rotate(xRotOffset, 0, 0);
+
+		LoadCharacter();
 	}
 	
 	public void LoadCharacter()
@@ -33,8 +36,8 @@ public class GameMaster : MonoBehaviour
 
 		if (gameSettings == null) 
 		{
-			Instantiate(gameSettings, Vector3.zero, Quaternion.identity);
-			gameSettings.name = "gameSettings";
+			GameObject newGameSettings = Instantiate(gameSettings, Vector3.zero, Quaternion.identity) as GameObject;
+			newGameSettings.name = "gameSettings";
 		}
 
 		GameSettings gameSettingsScript = GameObject.Find("GameSettings").GetComponent<GameSettings>();
