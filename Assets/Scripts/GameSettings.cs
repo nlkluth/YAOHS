@@ -67,6 +67,16 @@ public class GameSettings : MonoBehaviour
 				string[] modStats = s.Split('_');
 
 				int attributeIndex = 0;
+				for (int i = 0; i < Enum.GetValues(typeof(AttributeName)).Length; i++) 
+				{
+					if (modStats[0] == ((AttributeName)i).ToString())
+					{
+						attributeIndex = i;
+						break;
+					}
+					playerCharacterClass.GetVital((int)VitalName.Health).AddModifier(new ModifyingAttribute(GetPrimaryAttribute(attributeIndex), modStats[i]));
+   			    }
+			}
 //			PlayerPrefs.SetString(((VitalName)count).ToString() + "Mods", playerCharacterClass.GetVital(count).GetModifyingAttributeString());
 		}
 	}
