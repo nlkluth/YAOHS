@@ -12,10 +12,20 @@ public class GameMaster : MonoBehaviour
 
 	private GameObject _player;
 	private PlayerCharacter _playerCharacterScript;
+	private Vector3 _playerSpawnPosition;
 
 	void Start() 
 	{
-		_player = Instantiate (playerCharacter, Vector3.zero, Quaternion.identity) as GameObject;
+		_playerSpawnPosition = new Vector3(70, 1.5, 45);
+		GameObject spawnPoint = GameObject.Find(GameSettings.PLAYERSPAWN);
+
+		if (spawnPoint == null) 
+		{
+			spawnPoint = new GameObject(GameSettings.PLAYERSPAWN);
+			spawnPoint.transform.position = _playerSpawnPosition;
+		}
+
+		_player = Instantiate (playerCharacter, spawnPoint.transform.position, Quaternion.identity) as GameObject;
 		_player.name = "";
 		_playerCharacterScript = _player.GetComponent<PlayerCharacter>();
 
