@@ -77,7 +77,9 @@ public class GameSettings : MonoBehaviour
 					playerCharacterClass.GetVital((int)VitalName.Health).AddModifier(new ModifyingAttribute(GetPrimaryAttribute(attributeIndex), modStats[i]));
    			    }
 			}
+
 //			PlayerPrefs.SetString(((VitalName)count).ToString() + "Mods", playerCharacterClass.GetVital(count).GetModifyingAttributeString());
+//			playerCharacterClass.GetVital(count).Currentvalue = PlayerPrefs.GetInt(((VitalName)count).ToString() + " - Current Value", 0);			
 		}
 	}
 }
