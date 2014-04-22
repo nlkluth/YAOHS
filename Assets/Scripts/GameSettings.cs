@@ -4,6 +4,8 @@ using System;
 
 public class GameSettings : MonoBehaviour 
 {
+	public const string PLAYERSPAWN = "Player Spawn Point";
+
 	void Awake()
 	{
 		DontDestroyOnLoad(this);
