@@ -58,8 +58,9 @@ public class GameSettings : MonoBehaviour
 		{
 			playerCharacterClass.GetVital(count).BaseValue = PlayerPrefs.GetInt(((VitalName)count).ToString(), 0);
 			playerCharacterClass.GetVital(count).ExpToLevel = PlayerPrefs.GetInt(((VitalName)count).ToString() + " - Exp To Level", 0);
-			playerCharacterClass.GetVital(count).Currentvalue = PlayerPrefs.GetInt(((VitalName)count).ToString() + " - Current Value", 0);
-			
+
+			string playerMods = PlayerPrefs.GetString(((VitalName)count).ToString() + "Mods","");
+			string[] mods = playerMods.Split('|');
 //			PlayerPrefs.SetString(((VitalName)count).ToString() + "Mods", playerCharacterClass.GetVital(count).GetModifyingAttributeString());
 		}
 	}
