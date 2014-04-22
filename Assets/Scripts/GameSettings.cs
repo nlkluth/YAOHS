@@ -61,6 +61,12 @@ public class GameSettings : MonoBehaviour
 
 			string playerMods = PlayerPrefs.GetString(((VitalName)count).ToString() + "Mods","");
 			string[] mods = playerMods.Split('|');
+
+			foreach(string s in mods)
+			{
+				string[] modStats = s.Split('_');
+
+				int attributeIndex = 0;
 //			PlayerPrefs.SetString(((VitalName)count).ToString() + "Mods", playerCharacterClass.GetVital(count).GetModifyingAttributeString());
 		}
 	}
