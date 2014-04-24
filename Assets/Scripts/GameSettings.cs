@@ -56,32 +56,18 @@ public class GameSettings : MonoBehaviour
 			playerCharacterClass.GetPrimaryAttribute(count).ExpToLevel = PlayerPrefs.GetInt(((AttributeName)count).ToString() + " - Exp To Level", 0);
 		}
 
-		for (int count = 0; count < Enum.GetValues(typeof(AttributeName)).Length; count++) 
+		for (int count = 0; count < Enum.GetValues(typeof(VitalName)).Length; count++) 
 		{
 			playerCharacterClass.GetVital(count).BaseValue = PlayerPrefs.GetInt(((VitalName)count).ToString(), 0);
 			playerCharacterClass.GetVital(count).ExpToLevel = PlayerPrefs.GetInt(((VitalName)count).ToString() + " - Exp To Level", 0);
 
-			string playerMods = PlayerPrefs.GetString(((VitalName)count).ToString() + "Mods","");
-			string[] mods = playerMods.Split('|');
+			playerCharacterClass.GetVital(count).Update();
+			playerCharacterClass.GetVital(count).Currentvalue = PlayerPrefs.GetInt(((VitalName)count).ToString() + " - Current Value", 10);
+		}
 
-			foreach(string s in mods)
-			{
-				string[] modStats = s.Split('_');
+		for (int count = 0; count < Enum.GetValues(typeof(VitalName)).Length; count++) 
+		{
 
-				int attributeIndex = 0;
-				for (int i = 0; i < Enum.GetValues(typeof(AttributeName)).Length; i++) 
-				{
-					if (modStats[0] == ((AttributeName)i).ToString())
-					{
-						attributeIndex = i;
-						break;
-					}
-					playerCharacterClass.GetVital((int)VitalName.Health).AddModifier(new ModifyingAttribute(GetPrimaryAttribute(attributeIndex), modStats[i]));
-   			    }
-			}
-
-//			PlayerPrefs.SetString(((VitalName)count).ToString() + "Mods", playerCharacterClass.GetVital(count).GetModifyingAttributeString());
-//			playerCharacterClass.GetVital(count).Currentvalue = PlayerPrefs.GetInt(((VitalName)count).ToString() + " - Current Value", 0);			
 		}
 	}
 }
