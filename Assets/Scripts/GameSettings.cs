@@ -30,7 +30,7 @@ public class GameSettings : MonoBehaviour
 			PlayerPrefs.SetInt(((VitalName)count).ToString() + " - Exp To Level", playerCharacterClass.GetVital(count).ExpToLevel);
 			PlayerPrefs.SetInt(((VitalName)count).ToString() + " - Current Value", playerCharacterClass.GetVital(count).Currentvalue);
 
-			PlayerPrefs.SetString(((VitalName)count).ToString() + "Mods", playerCharacterClass.GetVital(count).GetModifyingAttributeString());
+			//PlayerPrefs.SetString(((VitalName)count).ToString() + "Mods", playerCharacterClass.GetVital(count).GetModifyingAttributeString());
 		}
 
 		for (int count = 0; count < Enum.GetValues(typeof(SkillName)).Length; count++)
@@ -38,7 +38,7 @@ public class GameSettings : MonoBehaviour
 			PlayerPrefs.SetInt(((SkillName)count).ToString(), playerCharacterClass.GetSkill(count).BaseValue);
 			PlayerPrefs.SetInt(((SkillName)count).ToString() + " - Exp To Level", playerCharacterClass.GetSkill(count).ExpToLevel);
 
-			PlayerPrefs.SetString(((SkillName)count).ToString() + "Mods", playerCharacterClass.GetSkill(count).GetModifyingAttributeString());
+			//PlayerPrefs.SetString(((SkillName)count).ToString() + "Mods", playerCharacterClass.GetSkill(count).GetModifyingAttributeString());
 		}
 
 	}
@@ -62,7 +62,7 @@ public class GameSettings : MonoBehaviour
 			playerCharacterClass.GetVital(count).ExpToLevel = PlayerPrefs.GetInt(((VitalName)count).ToString() + " - Exp To Level", 0);
 
 			playerCharacterClass.GetVital(count).Update();
-			playerCharacterClass.GetVital(count).Currentvalue = PlayerPrefs.GetInt(((VitalName)count).ToString() + " - Current Value", 10);
+			playerCharacterClass.GetVital(count).Currentvalue = PlayerPrefs.GetInt(((VitalName)count).ToString() + " - Current Value", 1);
 		}
 
 		for (int count = 0; count < Enum.GetValues(typeof(VitalName)).Length; count++) 
