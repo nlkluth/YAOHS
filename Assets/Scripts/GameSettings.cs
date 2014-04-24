@@ -65,9 +65,10 @@ public class GameSettings : MonoBehaviour
 			playerCharacterClass.GetVital(count).Currentvalue = PlayerPrefs.GetInt(((VitalName)count).ToString() + " - Current Value", 1);
 		}
 
-		for (int count = 0; count < Enum.GetValues(typeof(VitalName)).Length; count++) 
+		for (int count = 0; count < Enum.GetValues(typeof(SkillName)).Length; count++)
 		{
-
+			playerCharacterClass.GetSkill(count).BaseValue = PlayerPrefs.GetInt(((SkillName)count).ToString() + " - Base Value", 0);
+			playerCharacterClass.GetSkill(count).ExpToLevel = PlayerPrefs.GetInt(((SkillName)count).ToString() + " - Exp to Level", 0);
 		}
 	}
 }
