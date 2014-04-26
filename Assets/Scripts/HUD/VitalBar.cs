@@ -13,12 +13,24 @@ public class VitalBar : MonoBehaviour {
 	{}
 
 	public void OnEnable()
-	{}
+	{
+		if (_isPlayerHealthBar) {
+			Messenger<float>.AddListener ("player health update", OnHealthBarChanged);
+		} else {
+			Messenger<float>.AddListener ("mob health update", OnHealthBarChanged);
+		}
+	}
 
 	public void OnDisable()
-	{}
+	{
+		if (_isPlayerHealthBar) {
+			Messenger<float>.RemoveListener ("player health update", OnHealthBarChanged);
+		} else {
+			Messenger<float>.RemoveListener ("mob health update", OnHealthBarChanged);
+		}
+	}
 
-	public void ChangeHealthBarSize(int maxHealth, int currentHealth)
+	public void OnHealthBarChanged(int maxHealth, int currentHealth)
 	{
 
 	}
