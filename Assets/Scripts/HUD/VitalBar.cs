@@ -4,6 +4,7 @@ using System.Collections;
 public class VitalBar : MonoBehaviour {
 	public bool _isPlayerHealthBar;
 	private int _maxBarLength;
+	private int _currentBarLength;
 
 	void Start () 
 	{
@@ -33,7 +34,7 @@ public class VitalBar : MonoBehaviour {
 
 	public void OnHealthBarChanged(int maxHealth, int currentHealth)
 	{
-		Debug.Log("Heard event");
+		_currentBarLength = (currentHealth / maxHealth) * _maxBarLength;
 	}
 
 	public void SetPlayerHealthBar(bool flag)
