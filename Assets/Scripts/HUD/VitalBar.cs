@@ -2,7 +2,8 @@
 using System.Collections;
 
 public class VitalBar : MonoBehaviour {
-	private bool _isPlayerHealthBar;
+	public bool _isPlayerHealthBar;
+	private int _maxBarLength;
 
 	void Start () 
 	{
