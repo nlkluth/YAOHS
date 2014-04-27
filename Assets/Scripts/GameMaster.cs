@@ -25,8 +25,8 @@ public class GameMaster : MonoBehaviour
 			spawnPoint.transform.position = _playerSpawnPosition;
 		}
 
-		_player = Instantiate (playerCharacter, spawnPoint.transform.position, Quaternion.identity) as GameObject;
-		_player.name = "";
+		_player = Instantiate(playerCharacter, spawnPoint.transform.position, Quaternion.identity) as GameObject;
+		_player.name = "pc";
 		_playerCharacterScript = _player.GetComponent<PlayerCharacter>();
 
 		zOffset = -2.5f;
@@ -42,15 +42,15 @@ public class GameMaster : MonoBehaviour
 	
 	public void LoadCharacter()
 	{
-		GameObject gameSettings = GameObject.Find("");
+		GameObject gs = GameObject.Find("gameSettings");
 
-		if (gameSettings == null) 
+		if (gs == null) 
 		{
 			GameObject newGameSettings = Instantiate(gameSettings, Vector3.zero, Quaternion.identity) as GameObject;
 			newGameSettings.name = "gameSettings";
 		}
 
-		GameSettings gameSettingsScript = GameObject.Find("GameSettings").GetComponent<GameSettings>();
+		GameSettings gameSettingsScript = GameObject.Find("gameSettings").GetComponent<GameSettings>();
 
 		gameSettingsScript.LoadCharacterData();
 	}
