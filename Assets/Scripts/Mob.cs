@@ -5,7 +5,7 @@ public class Mob : BaseCharacter
 {
 	void Start ()
 	{
-		GetPrimaryAttribute(int)AttributeName.Constitution)).BaseValue = 100;
+		GetPrimaryAttribute((int)AttributeName.Constitution).BaseValue = 100;
 	}
 
 	void Update () 
