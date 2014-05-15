@@ -79,15 +79,18 @@ public class Targeting : MonoBehaviour
 
 	private void DeselectTarget()
 	{
-		selectedTarget.renderer.material.color = Color.blue;
 		selectedTarget = null;
 	}
 
 	private void SelectTarget()
-	{
-		selectedTarget.renderer.material.color = Color.red;
+	{	
+		Transform name = selectedTarget.FindChild("Name");
+		if (name == null)
+		{
+			Debug.Log("Could not find mob name");
+			return;
+		}
 
-		PlayerAttack playerAttack = (PlayerAttack)GetComponent("PlayerAttack");
-		playerAttack.target = selectedTarget.gameObject;
+		name.GetComponent<TextMesh>().text = selectedTarget.name;
 	}
 }
