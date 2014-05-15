@@ -7,6 +7,8 @@ public class Mob : BaseCharacter
 	{
 		GetPrimaryAttribute((int)AttributeName.Constitution).BaseValue = 100;
 		GetVital((int)VitalName.Health).Update();
+
+		Name = "Spidey";
 	}
 
 	void Update () 

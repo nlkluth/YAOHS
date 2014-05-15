@@ -79,7 +79,9 @@ public class Targeting : MonoBehaviour
 
 	private void DeselectTarget()
 	{
+		Transform name = selectedTarget.FindChild("Name");
 		selectedTarget = null;
+		name.GetComponent<MeshRenderer> ().enabled = false;
 	}
 
 	private void SelectTarget()
@@ -91,6 +93,7 @@ public class Targeting : MonoBehaviour
 			return;
 		}
 
-		name.GetComponent<TextMesh>().text = selectedTarget.name;
+		name.GetComponent<TextMesh>().text = selectedTarget.GetComponent<Mob>().Name;
+		name.GetComponent<MeshRenderer> ().enabled = true;
 	}
 }
