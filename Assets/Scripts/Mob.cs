@@ -11,6 +11,6 @@ public class Mob : BaseCharacter
 
 	void Update () 
 	{
-		Messenger<int, int>.Broadcast("mob health update", 100, 80);
+		//Messenger<int, int>.Broadcast("mob health update", 100, 80);
 	}
 }
