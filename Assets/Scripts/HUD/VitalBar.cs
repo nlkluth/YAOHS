@@ -25,7 +25,7 @@ public class VitalBar : MonoBehaviour {
 		if (_isPlayerHealthBar) {
 			Messenger<int, int>.AddListener("player health update", OnHealthBarChanged);
 		} else {
-			ToggleDisplay(false);
+			ToggleDisplay(false);;
 			Messenger<int, int>.AddListener("mob health update", OnHealthBarChanged);
 			Messenger<bool>.AddListener("show mob vitalbars", ToggleDisplay);
 		}
