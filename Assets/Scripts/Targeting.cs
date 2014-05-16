@@ -81,7 +81,7 @@ public class Targeting : MonoBehaviour
 	{
 		Transform name = selectedTarget.FindChild("Name");
 		selectedTarget = null;
-		name.GetComponent<MeshRenderer> ().enabled = false;
+		Messenger<bool>.Broadcast("show mob vitalbars", true);
 	}
 
 	private void SelectTarget()
@@ -96,5 +96,7 @@ public class Targeting : MonoBehaviour
 		name.GetComponent<TextMesh>().text = selectedTarget.GetComponent<Mob>().Name;
 		name.GetComponent<MeshRenderer> ().enabled = true;
 		selectedTarget.GetComponent<Mob>().DisplayHealth();
+
+		Messenger<bool>.Broadcast("show mob vitalbars", true); 
 	}
 }

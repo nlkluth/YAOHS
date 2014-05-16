@@ -25,7 +25,9 @@ public class VitalBar : MonoBehaviour {
 		if (_isPlayerHealthBar) {
 			Messenger<int, int>.AddListener("player health update", OnHealthBarChanged);
 		} else {
+			ToggleDisplay(false);
 			Messenger<int, int>.AddListener("mob health update", OnHealthBarChanged);
+			Messenger<bool>.AddListener("show mob vitalbars", ToggleDisplay);
 		}
 	}
 
@@ -35,6 +37,7 @@ public class VitalBar : MonoBehaviour {
 			Messenger<int, int>.RemoveListener("player health update", OnHealthBarChanged);
 		} else {
 			Messenger<int, int>.RemoveListener("mob health update", OnHealthBarChanged);
+			Messenger<bool>.RemoveListener("show mob vitalbars", ToggleDisplay);
 		}
 	}
 
@@ -60,5 +63,10 @@ public class VitalBar : MonoBehaviour {
 		}
 
 		return new Rect(_display.pixelInset.x, yPos, _currentBarLength, _display.pixelInset.height);
+	}
+
+	private void ToggleDisplay(bool show)
+	{
+		_display.enabled = show;
 	}
 }
