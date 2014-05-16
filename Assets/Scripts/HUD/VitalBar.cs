@@ -41,11 +41,24 @@ public class VitalBar : MonoBehaviour {
 	public void OnHealthBarChanged(int maxHealth, int currentHealth)
 	{
 		_currentBarLength = (int)((currentHealth / (float)maxHealth) * _maxBarLength);
-		_display.pixelInset = new Rect(_display.pixelInset.x, _display.pixelInset.y, _currentBarLength, _display.pixelInset.height);
+		_display.pixelInset = CalculatePosition();
 	}
 
 	public void SetPlayerHealthBar(bool flag)
 	{
 		_isPlayerHealthBar = flag;
+	}
+
+	public Rect CalculatePosition() 
+	{
+		float yPos = _display.pixelInset.y / 2 - 10;
+
+		if (!_isPlayerHealthBar)
+		{
+			float xPos = (_maxBarLength - _currentBarLength) - (_maxBarLength / 4 + 10);
+			return new Rect(xPos, yPos, _currentBarLength, _display.pixelInset.height);
+		}
+
+		return new Rect(_display.pixelInset.x, yPos, _currentBarLength, _display.pixelInset.height);
 	}
 }
