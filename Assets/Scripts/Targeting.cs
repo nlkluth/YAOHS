@@ -95,5 +95,6 @@ public class Targeting : MonoBehaviour
 
 		name.GetComponent<TextMesh>().text = selectedTarget.GetComponent<Mob>().Name;
 		name.GetComponent<MeshRenderer> ().enabled = true;
+		selectedTarget.GetComponent<Mob>().DisplayHealth();
 	}
 }
