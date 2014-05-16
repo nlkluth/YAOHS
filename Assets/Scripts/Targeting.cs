@@ -81,7 +81,7 @@ public class Targeting : MonoBehaviour
 	{
 		Transform name = selectedTarget.FindChild("Name");
 		selectedTarget = null;
-		Messenger<bool>.Broadcast("show mob vitalbars", true);
+		Messenger<bool>.Broadcast("show mob vitalbars", false);
 	}
 
 	private void SelectTarget()
