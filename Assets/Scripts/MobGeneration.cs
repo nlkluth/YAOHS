@@ -27,10 +27,13 @@ public class MobGeneration : MonoBehaviour
 			switch(state)
 			{
 				case State.Initialze:
+					Initialize();
 					break;
 				case State.Setup:
+					Setup();
 					break;
 				case State.SpawnMob:
+					SpawnMob();
 					break;
 			}
 		}
