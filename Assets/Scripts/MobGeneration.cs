@@ -15,6 +15,11 @@ public class MobGeneration : MonoBehaviour
 
 	public State state;
 
+	void Awake()
+	{
+		state = State.Initialze;
+	}
+
 	void Start () 
 	{
 		while(true) 
