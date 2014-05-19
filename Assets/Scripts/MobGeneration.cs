@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class MobGeneration : MonoBehaviour 
 {
@@ -80,5 +81,20 @@ public class MobGeneration : MonoBehaviour
 		}
 
 		return false;
+	}
+
+	private GameObject[] AvailableSpawnPoints()
+	{
+		List<GameObject> gameObjects = new List<GameObject>();
+
+		for (int i = 0; i < spawnPoints.Length; i++)
+		{
+			if (spawnPoints[i].transform.childCount == 0)
+			{
+				gameObjects.Add(spawnPoints[i]);
+			}
+		}
+
+		return gameObjects.ToArray();
 	}
 }
