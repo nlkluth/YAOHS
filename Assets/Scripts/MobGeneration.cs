@@ -20,7 +20,7 @@ public class MobGeneration : MonoBehaviour
 		state = State.Initialze;
 	}
 
-	void Start () 
+	IEnumerator Start () 
 	{
 		while(true) 
 		{
@@ -36,6 +36,8 @@ public class MobGeneration : MonoBehaviour
 					SpawnMob();
 					break;
 			}
+
+			yield return 0;
 		}
 	}
 	
