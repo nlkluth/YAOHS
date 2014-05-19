@@ -43,16 +43,42 @@ public class MobGeneration : MonoBehaviour
 	
 	private void Initialize()
 	{
-		Debug.Log ("init");
+		if (!CheckForMobPrefabs() || CheckForSpawnPoints()) 
+		{
+			return;
+		}
+		state = State.Setup;
 	}
 
 	private void Setup()
 	{
 		Debug.Log ("setup");
+		state = State.SpawnMob;
 	}
 
 	private void SpawnMob()
 	{
 		Debug.Log ("spawnmob");
+		state = State.Idle;
+	}
+
+	private bool CheckForMobPrefabs()
+	{
+		if (mobPrefabs.Length > 0) 
+		{
+			return true;
+		}
+
+		return false;
+	}
+
+	private bool CheckForSpawnPoints()
+	{
+		if (spawnPoints.Length > 0) 
+		{
+			return true;
+		}
+
+		return false;
 	}
 }
