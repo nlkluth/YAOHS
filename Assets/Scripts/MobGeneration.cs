@@ -64,6 +64,8 @@ public class MobGeneration : MonoBehaviour
 		{
 			GameObject randomMob = Instantiate(mobPrefabs[Random.Range(0, mobPrefabs.Length)],
 	                                   availableSpawnPoints[i].transform.position, Quaternion.identity) as GameObject;
+
+			randomMob.transform.parent = availableSpawnPoints[i].transform;
 		}
 
 		state = State.Idle;
