@@ -44,7 +44,7 @@ public class MobGeneration : MonoBehaviour
 	
 	private void Initialize()
 	{
-		if (!CheckForMobPrefabs() || CheckForSpawnPoints()) 
+		if (!CheckForMobPrefabs() || !CheckForSpawnPoints()) 
 		{
 			return;
 		}
