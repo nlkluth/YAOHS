@@ -10,7 +10,7 @@ public class MobGeneration : MonoBehaviour
 		Idle,
 		Initialze,
 		Setup,
-		Actions	
+		SpawnMob	
 	}
 
 	public State state;
@@ -25,7 +25,7 @@ public class MobGeneration : MonoBehaviour
 					break;
 				case State.Setup:
 					break;
-				case State.Actions:
+				case State.SpawnMob:
 					break;
 			}
 		}
@@ -34,5 +34,15 @@ public class MobGeneration : MonoBehaviour
 	private void Initialize()
 	{
 		Debug.Log ("init");
+	}
+
+	private void Setup()
+	{
+		Debug.Log ("setup");
+	}
+
+	private void SpawnMob()
+	{
+		Debug.Log ("spawnmob");
 	}
 }
