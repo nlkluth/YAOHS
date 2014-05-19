@@ -59,7 +59,13 @@ public class MobGeneration : MonoBehaviour
 
 	private void SpawnMob()
 	{
-		Debug.Log ("spawnmob");
+		GameObject[] availableSpawnPoints = AvailableSpawnPoints();
+		for (int i = 0; i < availableSpawnPoints.Length; i++)
+		{
+			GameObject randomMob = Instantiate(mobPrefabs[Random.Range(0, mobPrefabs.Length)],
+	                                   availableSpawnPoints[i].transform.position, Quaternion.identity) as GameObject;
+		}
+
 		state = State.Idle;
 	}
 
