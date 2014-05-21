@@ -56,29 +56,32 @@ public class Targeting : MonoBehaviour
 		{
 			AddAllTargets();
 		}
-		if (selectedTarget == null)
+		if (targets.Count > 0)
 		{
-			SortTargetsByDistance();
-			selectedTarget = targets[0];
-		}
-		else
-		{
-			int index = targets.IndexOf(selectedTarget);
-
-			if (index < targets.Count - 1)
+			if (selectedTarget == null)
 			{
-				index++;
+				SortTargetsByDistance();
+				selectedTarget = targets[0];
 			}
-
 			else
 			{
-				index = 0;
-			}
-			DeselectTarget();
-			selectedTarget = targets[index];
-		}
+				int index = targets.IndexOf(selectedTarget);
 
-		SelectTarget();
+				if (index < targets.Count - 1)
+				{
+					index++;
+				}
+
+				else
+				{
+					index = 0;
+				}
+				DeselectTarget();
+				selectedTarget = targets[index];
+			}
+
+			SelectTarget();
+		}
 	}
 
 	private void DeselectTarget()
