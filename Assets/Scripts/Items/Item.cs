@@ -17,6 +17,14 @@ public class Item
 		MaxDurability = 50;
 		CurrentDurability = MaxDurability;
 	}
+
+	public Item(string name, int value, Rarity rarity, int maxDurability)
+	{
+		Name = name;
+		Value = value;
+		Rarity = rarity;
+		MaxDurability = maxDurability;
+	}
 }
 
 public enum Rarity 
