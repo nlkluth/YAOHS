@@ -30,7 +30,7 @@ public class BuffItem : Item
 
 	public void RemoveBuff(BaseStat stat)
 	{
-		buffs.Remove(stat.Name)
+		buffs.Remove(stat.Name);
 	}
 
 	public int BuffCount()
