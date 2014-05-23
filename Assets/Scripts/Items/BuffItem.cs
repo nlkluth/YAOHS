@@ -8,7 +8,12 @@ public class BuffItem : Item
 
 	public BuffItem()
 	{
+		buffs = new Hashtable ();
+	}
 
+	public BuffItem(Hashtable hashtable)
+	{
+		buffs = hashtable;
 	}
 
 	public void AddBuff(BaseStat stat, int modifier)
