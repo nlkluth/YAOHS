@@ -18,6 +18,28 @@ public class BuffItem : Item
 
 	public void AddBuff(BaseStat stat, int modifier)
 	{
-		buffs.Add(stat.Name, modifier);
+		try
+		{
+			buffs.Add(stat.Name, modifier);
+		}
+		catch(Exception e)
+		{
+			Debug.LogWarning(e);
+		}
+	}
+
+	public void RemoveBuff(BaseStat stat)
+	{
+		buffs.Remove(stat.Name)
+	}
+
+	public int BuffCount()
+	{
+		return buffs.Count();
+	}
+
+	public Hashtable BuffList()
+	{
+		return buffs;
 	}
 }
