@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class BuffItem : Item 
 {
@@ -35,7 +36,7 @@ public class BuffItem : Item
 
 	public int BuffCount()
 	{
-		return buffs.Count();
+		return buffs.Count;
 	}
 
 	public Hashtable BuffList()
