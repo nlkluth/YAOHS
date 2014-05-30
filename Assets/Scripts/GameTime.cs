@@ -23,7 +23,11 @@ public class GameTime : MonoBehaviour
 	
 	void Update () 
 	{
-		sun[0].Rotate(new Vector3(_degreeRotation, 0, 0) * Time.deltaTime);
-		_timeOfDay += Time.deltaTime;
+		for (int count = 0; count < sun.Length; count++)
+		{
+			sun[count].Rotate(new Vector3(_degreeRotation, 0, 0) * Time.deltaTime);
+			_timeOfDay += Time.deltaTime;
+		}
+
 	}
 }
