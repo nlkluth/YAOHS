@@ -6,6 +6,7 @@ public class GameTime : MonoBehaviour
 	public Transform[] sun;
 	private Sun[] _sun;
 	public float dayCycleInMinutes = 1;
+	private float dayCycleInSeconds;
 
 	private const float SECOND = 1;
 	private const float MINUTE = 60 * SECOND;
@@ -18,7 +19,10 @@ public class GameTime : MonoBehaviour
 
 	void Start()
 	{
+		dayCycleInSeconds = dayCycleInMinutes * MINUTE;
 		_sun = new Sun[sun.Length];
+
+		RenderSettings.skybox.SetFloat("_Blend", 0);
 
 		for (int count = 0; count < _sun.Length; count++)
 		{
@@ -33,7 +37,7 @@ public class GameTime : MonoBehaviour
 		}
 
 		_timeOfDay = 0;
-		_degreeRotation = DEGREES_PER_SECOND * DAY / (dayCycleInMinutes * MINUTE);
+		_degreeRotation = DEGREES_PER_SECOND * DAY / dayCycleInSeconds;
 	}
 	
 	void Update () 
@@ -44,5 +48,10 @@ public class GameTime : MonoBehaviour
 			_timeOfDay += Time.deltaTime;
 		}
 
+	}
+
+	private void BlendSkybox()
+	{
+		float temp = _timeOfDay / dayCycleInSeconds;
 	}
 }
