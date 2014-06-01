@@ -4,6 +4,7 @@ using System.Collections;
 public class GameTime : MonoBehaviour 
 {
 	public Transform[] sun;
+	private Sun[] _sun;
 	public float dayCycleInMinutes = 1;
 
 	private const float SECOND = 1;
@@ -17,6 +18,20 @@ public class GameTime : MonoBehaviour
 
 	void Start()
 	{
+		_sun = new Sun[sun.Length];
+
+		for (int count = 0; count < _sun.Length; count++)
+		{
+			Sun temp = sun[count].GetComponent<Sun>();
+
+			if (temp == null)
+			{
+				sun[count].gameObject.AddComponent<Sun>();
+				temp = sun[count].GetComponent<Sun>();
+			}
+			_sun[count] = temp;
+		}
+
 		_timeOfDay = 0;
 		_degreeRotation = DEGREES_PER_SECOND * DAY / (dayCycleInMinutes * MINUTE);
 	}
