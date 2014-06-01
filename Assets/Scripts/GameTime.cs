@@ -6,8 +6,9 @@ public class GameTime : MonoBehaviour
 	public Transform[] sun;
 	private Sun[] _sun;
 	public float dayCycleInMinutes = 1;
-	private float dayCycleInSeconds;
+	public float StartTime;
 
+	private float dayCycleInSeconds;
 	private const float SECOND = 1;
 	private const float MINUTE = 60 * SECOND;
 	private const float HOUR = 60 * MINUTE;
@@ -53,6 +54,7 @@ public class GameTime : MonoBehaviour
 			_timeOfDay -= dayCycleInSeconds;
 		}
 
+		Debug.Log(_timeOfDay);
 		BlendSkybox();
 
 	}
