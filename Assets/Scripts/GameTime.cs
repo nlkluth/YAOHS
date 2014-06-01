@@ -52,6 +52,11 @@ public class GameTime : MonoBehaviour
 
 	private void BlendSkybox()
 	{
-		float temp = _timeOfDay / dayCycleInSeconds;
+		float temp = _timeOfDay / dayCycleInSeconds * 2;
+		if (temp > 1) 
+		{
+			temp = 1 - (temp - 1);
+		}
+		RenderSettings.skybox.SetFloat("_Bland", temp);
 	}
 }
