@@ -48,6 +48,13 @@ public class GameTime : MonoBehaviour
 			_timeOfDay += Time.deltaTime;
 		}
 
+		if (_timeOfDay > dayCycleInSeconds)
+		{
+			_timeOfDay -= dayCycleInSeconds;
+		}
+
+		BlendSkybox();
+
 	}
 
 	private void BlendSkybox()
