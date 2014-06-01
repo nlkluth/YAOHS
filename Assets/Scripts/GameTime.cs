@@ -54,7 +54,6 @@ public class GameTime : MonoBehaviour
 			_timeOfDay -= dayCycleInSeconds;
 		}
 
-		Debug.Log(_timeOfDay);
 		BlendSkybox();
 
 	}
@@ -66,6 +65,6 @@ public class GameTime : MonoBehaviour
 		{
 			temp = 1 - (temp - 1);
 		}
-		RenderSettings.skybox.SetFloat("_Bland", temp);
+		RenderSettings.skybox.SetFloat("_Blend", temp);
 	}
 }
