@@ -68,13 +68,29 @@ public class GameTime : MonoBehaviour
 			_timeOfDay -= dayCycleInSeconds;
 		}
 
-		BlendSkybox();
+
+		if (_timeOfDay > sunRise) 
+		{
+			BlendSkybox();
+			_tod = TimeOfDay.SunRise;
+		}
 
 	}
 
 	private void BlendSkybox()
 	{
-		float temp = _timeOfDay / dayCycleInSeconds * 2;
+		float temp;
+
+		switch (_tod) 
+		{
+		case TimeOfDay.SunRise:
+			temp = (_timeOfDay - sunRise) / skyBoxBlendModifier;
+			break;
+		case TimeOfDay.SunSet:
+			temp = (_timeOfDay = sunSet) / skyBoxBlendModifier;
+			break;
+		}
+
 		if (temp > 1) 
 		{
 			temp = 1 - (temp - 1);
