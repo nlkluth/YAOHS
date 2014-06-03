@@ -88,13 +88,11 @@ public class GameTime : MonoBehaviour
 			break;
 		case TimeOfDay.SunSet:
 			temp = (_timeOfDay = sunSet) / skyBoxBlendModifier;
+			temp = 1 - temp;
 			break;
 		}
 
-		if (temp > 1) 
-		{
-			temp = 1 - (temp - 1);
-		}
+
 		RenderSettings.skybox.SetFloat("_Blend", temp);
 	}
 }
