@@ -3,12 +3,22 @@ using System.Collections;
 
 public class GameTime : MonoBehaviour 
 {
+	public enum TimeOfDay 
+	{
+		Idle,
+		SunRise,
+		SunSet
+	}
+
 	public Transform[] sun;
 	private Sun[] _sun;
 	public float dayCycleInMinutes = 1;
-	public float StartTime;
+	public float sunRise;
+	public float sunSet;
+	public float skyBoxBlendModifier;
 
 	private float dayCycleInSeconds;
+	private TimeOfDay _tod;
 	private const float SECOND = 1;
 	private const float MINUTE = 60 * SECOND;
 	private const float HOUR = 60 * MINUTE;
@@ -21,6 +31,7 @@ public class GameTime : MonoBehaviour
 	void Start()
 	{
 		dayCycleInSeconds = dayCycleInMinutes * MINUTE;
+		_tod = TimeOfDay.Idle;
 		_sun = new Sun[sun.Length];
 
 		RenderSettings.skybox.SetFloat("_Blend", 0);
@@ -39,6 +50,9 @@ public class GameTime : MonoBehaviour
 
 		_timeOfDay = 0;
 		_degreeRotation = DEGREES_PER_SECOND * DAY / dayCycleInSeconds;
+
+		sunRise *= dayCycleInSeconds;
+		sunSet += dayCycleInSeconds;
 	}
 	
 	void Update () 
