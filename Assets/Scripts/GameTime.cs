@@ -79,7 +79,7 @@ public class GameTime : MonoBehaviour
 
 	private void BlendSkybox()
 	{
-		float temp;
+		float temp = 0;
 
 		switch (_tod) 
 		{
@@ -91,7 +91,6 @@ public class GameTime : MonoBehaviour
 			temp = 1 - temp;
 			break;
 		}
-
 
 		RenderSettings.skybox.SetFloat("_Blend", temp);
 	}
