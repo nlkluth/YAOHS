@@ -69,7 +69,7 @@ public class GameTime : MonoBehaviour
 		}
 
 
-		if (_timeOfDay > sunRise && _timeOfDay < sunSet) 
+		if (_timeOfDay > sunRise && _timeOfDay < sunSet && RenderSettings.skybox.GetFloat("_Blend") < 1) 
 		{
 			BlendSkybox();
 			_tod = TimeOfDay.SunRise;
