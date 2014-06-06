@@ -27,6 +27,7 @@ public class GameTime : MonoBehaviour
 
 	private float _degreeRotation;
 	private float _timeOfDay;
+	private float _noonTime;
 
 	void Start()
 	{
@@ -53,6 +54,9 @@ public class GameTime : MonoBehaviour
 
 		sunRise *= dayCycleInSeconds;
 		sunSet += dayCycleInSeconds;
+		_noonTime = dayCycleInSeconds / 2;
+
+		SetupLighting();
 	}
 	
 	void Update () 
@@ -103,5 +107,16 @@ public class GameTime : MonoBehaviour
 		}
 
 		RenderSettings.skybox.SetFloat("_Blend", temp);
+	}
+
+	private void SetupLighting()
+	{
+		for (int count = 0; count < _sun.Length; count++)
+		{
+			if(_sun[count].givesLight)
+			{
+				_sun[count].GetComponent<Light>().intensity = _sun[count].minLightBrightness;
+			}
+		}
 	}
 }
