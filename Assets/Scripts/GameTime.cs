@@ -72,6 +72,9 @@ public class GameTime : MonoBehaviour
 			_timeOfDay -= dayCycleInSeconds;
 		}
 
+		if (_timeOfDay > sunRise && _timeOfDay < _noonTime) 
+		{
+		}
 
 		if (_timeOfDay > sunRise && _timeOfDay < sunSet && RenderSettings.skybox.GetFloat("_Blend") < 1) 
 		{
@@ -118,5 +121,10 @@ public class GameTime : MonoBehaviour
 				_sun[count].GetComponent<Light>().intensity = _sun[count].minLightBrightness;
 			}
 		}
+	}
+
+	private void AdjustLighting()
+	{
+
 	}
 }
