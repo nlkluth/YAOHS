@@ -146,5 +146,16 @@ public class GameTime : MonoBehaviour
 				}
 			}
 		}
+		else
+		{
+			float position = (sunSet - _timeOfDay) / _eveningLength;
+			for (int count = 0; count < _sun.Length; count++)
+			{
+				if (_sun[count].givesLight)
+				{
+					_sun[count].GetComponent<Light>().intensity = _sun[count].maxLightBrightness * position;
+				}
+			}
+		}
 	}
 }
