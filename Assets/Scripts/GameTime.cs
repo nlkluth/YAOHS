@@ -28,6 +28,8 @@ public class GameTime : MonoBehaviour
 	private float _degreeRotation;
 	private float _timeOfDay;
 	private float _noonTime;
+	private float _morningLength;
+	private float _eveningLength;
 
 	void Start()
 	{
@@ -55,6 +57,8 @@ public class GameTime : MonoBehaviour
 		sunRise *= dayCycleInSeconds;
 		sunSet += dayCycleInSeconds;
 		_noonTime = dayCycleInSeconds / 2;
+		_morningLength = _noonTime - sunRise;
+		_eveningLength = sunSet - _noonTime;
 
 		SetupLighting();
 	}
@@ -131,6 +135,16 @@ public class GameTime : MonoBehaviour
 
 	private void AdjustLighting(bool brighten)
 	{
-
+		if (brighten) 
+		{
+			float position = (_timeOfDay - sunRise) / _morningLength;
+			for (int count = 0; count < _sun; count++)
+			{
+				if (_sun[count].givesLight)
+				{
+					_sun[count].GetComponent<Light>().intensity = _sun[count].maxLightBrightness * position;
+				}
+			}
+		}
 	}
 }
