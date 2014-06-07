@@ -138,7 +138,7 @@ public class GameTime : MonoBehaviour
 		if (brighten) 
 		{
 			float position = (_timeOfDay - sunRise) / _morningLength;
-			for (int count = 0; count < _sun; count++)
+			for (int count = 0; count < _sun.Length; count++)
 			{
 				if (_sun[count].givesLight)
 				{
