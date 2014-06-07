@@ -74,6 +74,12 @@ public class GameTime : MonoBehaviour
 
 		if (_timeOfDay > sunRise && _timeOfDay < _noonTime) 
 		{
+			AdjustLighting(true);
+		}
+
+		else if (_timeOfDay > _noonTime && _timeOfDay < sunSet)
+		{
+			AdjustLighting(false);
 		}
 
 		if (_timeOfDay > sunRise && _timeOfDay < sunSet && RenderSettings.skybox.GetFloat("_Blend") < 1) 
@@ -123,7 +129,7 @@ public class GameTime : MonoBehaviour
 		}
 	}
 
-	private void AdjustLighting()
+	private void AdjustLighting(bool brighten)
 	{
 
 	}
