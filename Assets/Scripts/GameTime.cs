@@ -16,6 +16,8 @@ public class GameTime : MonoBehaviour
 	public float sunRise;
 	public float sunSet;
 	public float skyBoxBlendModifier;
+	public Color ambientLightMin;
+	public Color ambientLightMax;
 
 	private float dayCycleInSeconds;
 	private TimeOfDay _tod;
@@ -124,6 +126,8 @@ public class GameTime : MonoBehaviour
 
 	private void SetupLighting()
 	{
+		RenderSettings.ambientLight = ambientLightMin;
+
 		for (int count = 0; count < _sun.Length; count++)
 		{
 			if(_sun[count].givesLight)
