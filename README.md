@@ -1,1 +1,1 @@
-Side scroller game - learning process
+learning process
