@@ -150,7 +150,9 @@ public class GameTime : MonoBehaviour
 			position = (sunSet - _timeOfDay) / _eveningLength;
 		}
 
-		RenderSettings.ambientLight = ambientLightMax * position;
+		RenderSettings.ambientLight = new Color(ambientLightMin.r + ambientLightMax.r * position,
+		                                        ambientLightMin.g + ambientLightMax.g * position,
+		                                        ambientLightMin.b + ambientLightMax.b * position);
 
 		for (int count = 0; count < _sun.Length; count++)
 		{
