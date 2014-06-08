@@ -139,26 +139,24 @@ public class GameTime : MonoBehaviour
 
 	private void AdjustLighting(bool brighten)
 	{
+		float position = 0;
+
 		if (brighten) 
 		{
-			float position = (_timeOfDay - sunRise) / _morningLength;
-			for (int count = 0; count < _sun.Length; count++)
-			{
-				if (_sun[count].givesLight)
-				{
-					_sun[count].GetComponent<Light>().intensity = _sun[count].maxLightBrightness * position;
-				}
-			}
+			position = (_timeOfDay - sunRise) / _morningLength;
 		}
 		else
 		{
-			float position = (sunSet - _timeOfDay) / _eveningLength;
-			for (int count = 0; count < _sun.Length; count++)
+			position = (sunSet - _timeOfDay) / _eveningLength;
+		}
+
+		RenderSettings.ambientLight = ambientLightMax * position;
+
+		for (int count = 0; count < _sun.Length; count++)
+		{
+			if (_sun[count].givesLight)
 			{
-				if (_sun[count].givesLight)
-				{
-					_sun[count].GetComponent<Light>().intensity = _sun[count].maxLightBrightness * position;
-				}
+				_sun[count].GetComponent<Light>().intensity = _sun[count].maxLightBrightness * position;
 			}
 		}
 	}
